@@ -1,0 +1,13 @@
+.OrdersPhoto {
+    width: 150px;
+    height: 150px;
+}
+
+.OrdersItem td:nth-child(2) {
+    width: 400px;
+}
+
+.OrdersDateBox,
+.OrdersItem {
+    margin-bottom: 20px;
+}

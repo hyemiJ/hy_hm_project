@@ -1,0 +1,199 @@
+.searchProductAdmin {
+    font-family: 'SUITE-Regular';
+}
+
+.adminProductBox {
+    /* background-color: bisque; */
+    display: grid;
+}
+
+.productMainTitle {
+    width: 300px;
+    border: 1px solid;
+    border-radius: 5px;
+    position: relative;
+    padding-left: 8px;
+}
+
+.productMainTitle:before {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #1a4e99;
+    content: '';
+}
+
+.productTitle {
+    position: relative;
+    font-family: 'SUITE-Regular';
+    padding-left: 8px;
+    margin: 10px 0;
+}
+
+.productTitle::before {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #1a4f9981;
+    content: '';
+}
+
+.searchProductAdmin input {
+    padding: 2px;
+    margin: 2px;
+}
+
+.buttonwrapper button,
+.searchProductAdmin input[type="button"] {
+    font-family: 'SUITE-Regular';
+    padding: 4px;
+    margin: 2px;
+    border: 1px solid #ccc;
+}
+
+.searchProductAdmin input[type="button"]:hover {
+    background: #e6e6e6;
+}
+
+.seachStockCount input {
+    width: 50px;
+}
+
+.seachvalue {
+    width: 200px;
+}
+
+.searchgrid {
+    display: grid;
+}
+
+.buttonwrapper {
+    text-align: center;
+    margin: auto;
+}
+
+
+.searchProductBar {
+    border: 1px solid;
+    padding: 10px;
+    margin: 10px;
+}
+
+.productListUp td {
+    text-align: center;
+    margin: 10px;
+    border-bottom: 1px solid  #ccc;
+}
+
+/* ============================ */
+/* insert(Save) From */
+
+.inserProductsForm1 {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.inserProductsForm2 {
+    display: grid;
+    width: 50%;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+    gap: 10px;
+    padding: 20px;
+    
+    margin: 20px auto;
+}
+
+.inserProductsForm3 {
+    display: grid;
+    /* width: 50%;  */
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 20px;
+    
+    margin: 20px;
+}
+
+.adminProductImage img {
+    width: 50px;
+    margin: 10px;
+}
+
+.inserProductsForm3 img {
+    width: 50px;
+    margin: 10px;
+}
+
+.productDescription {
+    font-family: 'SUITE-Regular';
+    display: grid;
+    width: 300px;
+    grid-template-columns: 1fr 2fr;
+}
+.productDescription img{
+    width: 100px;
+    margin: 10px;
+}
+
+/* ====================================== */
+.fileResult img {
+    width: 150px;
+    margin: 10px;
+}
+
+.ProductRelatedStorage button {
+    font-family: 'SUITE-Regular';
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccc;
+}
+
+/* ---------------------------------------- */
+.clickProductDetailTd {
+    cursor: pointer;
+    font-family: 'SUITE-Regular';
+    padding: 5px;
+    margin: 2px;
+    /* font-weight: 700; */
+    text-decoration: underline;
+    color: rgb(55, 55, 186);
+}
+
+.clickProductDetailTd:hover {
+    background: #e6e6e646;
+}
+
+.genderPurchases{
+    font-family: 'SUITE-Regular';
+    border:1px solid #ccc ;
+    padding: 5px;
+    width: 200px;
+    height: 250px;
+}
+.pieResult{
+    font-family: 'SUITE-Regular';
+    border:1px solid #ccc ;
+    width: 350px;
+}
+.lineResult{
+    font-family: 'SUITE-Regular';
+    border:1px solid #ccc ;
+    padding: 10px;
+}
+.genderPurchasesresult span{
+    padding: 2px;
+    margin: 2px;
+}
+.piegender,.linePurchases{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}

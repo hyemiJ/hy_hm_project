@@ -129,22 +129,22 @@ public class UsersServiceImpl implements UsersService {
 		userRepository.updateUser(userId, phoneNumber, email);
 	}
 
-//	@Override
-//	public List<Users> findUserinfoToSearch(String keyword, String searchType) {
-//		
-//		switch(searchType) {
-//			case "all":
-//				return userRepository.findBySearchAll(keyword,searchType);
-//			case "name":
-//				return userRepository.findBySearchUserName(keyword,searchType);
-//			case "userId":
-//				return userRepository.findBySearchUserId(keyword,searchType);
-//			case "phoneNumber":
-//				return userRepository.findBySearchUserPhoneNumber(keyword,searchType);
-//		}
-//		
-//		return null;
-//	}
+	@Override
+	public List<Users> findUserinfoToSearch(String keyword, String searchType) {
+		
+		switch(searchType) {
+			case "all":
+				return userRepository.findBySearchAll(keyword,searchType);
+			case "name":
+				return userRepository.findBySearchUserName(keyword,searchType);
+			case "userId":
+				return userRepository.findBySearchUserId(keyword,searchType);
+			case "phoneNumber":
+				return userRepository.findBySearchUserPhoneNumber(keyword,searchType);
+		}
+		
+		return null;
+	}
 
 	@Override
 	public int countBy() {
@@ -203,5 +203,6 @@ public class UsersServiceImpl implements UsersService {
 	    // 결과가 없을 경우 null 반환 또는 적절한 예외 처리
 	    return null;
 	}
+
 
 }

@@ -2,7 +2,10 @@ package com.example.mokkoji_backend.service.login;
 
 import java.util.List;
 
+import com.example.mokkoji_backend.domain.UserAndAddressDTO;
 import com.example.mokkoji_backend.entity.login.Address;
+import com.example.mokkoji_backend.entity.login.Users;
+
 import jakarta.transaction.Transactional;
 
 public interface AddressService {
@@ -42,4 +45,7 @@ public interface AddressService {
 
 	// 8. 관리자 페이지 주소 저장 
 	void userAdmimAddressUpdate (List<Address> addr);
+
+	
+
 }

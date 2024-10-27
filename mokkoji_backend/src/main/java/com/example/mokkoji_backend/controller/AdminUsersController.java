@@ -3,8 +3,6 @@ package com.example.mokkoji_backend.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +21,7 @@ import com.example.mokkoji_backend.repository.login.AddressRepository;
 import com.example.mokkoji_backend.repository.orders.OrdersRepository;
 import com.example.mokkoji_backend.service.email.EmailService;
 import com.example.mokkoji_backend.service.login.AddressService;
+import com.example.mokkoji_backend.service.login.UserAdminService;
 import com.example.mokkoji_backend.service.login.UsersService;
 
 import lombok.RequiredArgsConstructor;
@@ -36,6 +35,7 @@ public class AdminUsersController {
 	private final AddressService addressService;
 	private final EmailService emailService;
 	private final OrdersRepository ordersRepository;
+	private final UserAdminService userAdminService;
 	
 	@PostMapping("/administrator/users")
 	public ResponseEntity<?> suchDB(@RequestBody PageRequestDTO requestDTO) {
@@ -92,22 +92,15 @@ public class AdminUsersController {
 		
 	@PostMapping("/administrator/users/userinfo/userinfoupdate")
 	public ResponseEntity<?> userinfoupdate(@RequestBody UserAndAddressDTO requestDTO) {
+	
+	String result = userAdminService.userinfoAllupdate(requestDTO);
+	if (result== "성공") {
+		return ResponseEntity.ok("저장됨");	
+	}else  {
+		return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("저장이 불가합니다.");
+	}
 	    
-	    List<Address> addr = requestDTO.getUserinfoAddress();
-	    Users user = requestDTO.getUserinfo();
-
-	    // 유저와 주소 정보가 유효한지 확인
-	    if (addr != null && !addr.isEmpty() && user != null) {
-	        // 유저 정보 업데이트
-	        userService.userAdmimInfoUpdate(user);
-	        // 주소 정보 업데이트
-	        addressService.userAdmimAddressUpdate(addr);
-	        return ResponseEntity.ok("저장됨");
-	    } 
-	    else {
-	        // 유효하지 않은 입력에 대한 에러 처리
-	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("유효하지 않은 입력입니다.");
-	    }
+      
 	}
 	
 	@PostMapping("/administrator/users/userinfo/isWithdrawn")
@@ -130,17 +123,17 @@ public class AdminUsersController {
 	}
 	
 	
-	@PostMapping("/administrator/users/userinfo/addressdelete")
-	public ResponseEntity<?> userinfoAddressdelete (@RequestBody Address requeseDTO){
-		int userAddressId = requeseDTO.getAddressId();
-		
-		if(userAddressId>=0) {
-			addressService.deleteById(userAddressId);
-			return ResponseEntity.ok("주소 삭제 완료");
-		}else {
-			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("주소를 찾을 수 없습니다");
-		}
-	}
+//	@PostMapping("/administrator/users/userinfo/addressdelete")
+//	public ResponseEntity<?> userinfoAddressdelete (@RequestBody Address requeseDTO){
+//		int userAddressId = requeseDTO.getAddressId();
+//		
+//		if(userAddressId>=0) {
+//			addressService.deleteById(userAddressId);
+//			return ResponseEntity.ok("주소 삭제 완료");
+//		}else {
+//			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("주소를 찾을 수 없습니다");
+//		}
+//	}
 	
 	@PostMapping("/administrator/users/userinfo/sendMail")
 	public ResponseEntity<?> adminSendMail(@RequestBody UserSendMailDTO requeseDTO){

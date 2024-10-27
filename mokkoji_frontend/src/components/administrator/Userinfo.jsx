@@ -18,7 +18,7 @@ const Userinfo = () => {
     //부모 컴포넌트에서 넘겨준 값 처리 
     const location = useLocation();
     let dbData = location.state;  // 전달된 dbData 객체
-    //console.log('전달된 객체', dbData);
+    console.log('전달된 객체', dbData);
     const {
         users,
         userAddress,
@@ -31,17 +31,6 @@ const Userinfo = () => {
     } = location.state || {};
 
     const userPercentage = totalAmount > 0 ? (totalPurchaseAmount / totalAmount) * 100 : 0;
-
-    // // 유저의 총 구매 금액
-    // const userPurchase = totalPurchaseAmount || 0;  // 유저가 구매하지 않은 경우 0으로 처리
-
-    // // 유저의 구매 비율 (총 구매 금액 중 유저가 차지하는 비율)
-    // const userPercentage = totalAmount > 0 ? (userPurchase / totalAmount) * 100 : 0;  // 전체 구매 금액 대비 비율
-
-    // // 나머지 구매 금액 (다른 구매자들이 차지하는 금액)
-    // const otherPurchase = totalAmount - userPurchase;
-
-
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const navigator = useNavigate();
@@ -299,18 +288,19 @@ const Userinfo = () => {
 
 
     const removeAdress = (index) => {
-        let url = '/administrator/users/userinfo/addressdelete'
+        // let url = '/administrator/users/userinfo/addressdelete'
 
-        apiCall(url, 'POST', rows[index], null)
-            .then((response) => {
-                alert(response.data);
-                navigator('/administrator/users');
-            }).catch((err) => {
-                console.error("Error during API call:", err);
-            })
+        // apiCall(url, 'POST', rows[index], null)
+        //     .then((response) => {
+        //         alert(response.data);
+        //         navigator('/administrator/users');
+        //     }).catch((err) => {
+        //         console.error("Error during API call:", err);
+        //     })
+
         // rows 배열에서 해당 인덱스의 항목 제거
         setRows((prevRows) => prevRows.filter((_, i) => i !== index));
-
+        
         // checked 배열에서도 해당 인덱스의 항목 제거
         setChecked((prevChecked) => prevChecked.filter((_, i) => i !== index));
     }
@@ -339,7 +329,6 @@ const Userinfo = () => {
                 {
                     data: [100 - userPercentage, userPercentage],
                     backgroundColor: ['#36A2EB', '#FF6384'],
-
                 },
             ],
         };

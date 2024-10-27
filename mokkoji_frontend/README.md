@@ -2,7 +2,7 @@
 + npm init -y
 + npm install
 + npm i 'create-react-app'
-+ npm i 'react-router-dom'
++ npm install react-router-dom
 + npm i moment react-moment
 + npm i redux react-redux
 + npm i react-calendar

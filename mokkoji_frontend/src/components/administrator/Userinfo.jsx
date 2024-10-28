@@ -274,7 +274,7 @@ const Userinfo = () => {
 
             apiCall(url, 'POST', data, null)
                 .then((response) => {
-                    alert('저장 완료');
+                    alert(response.data);
                     navigator('/administrator/users');
                 }).catch((err) => {
                     console.error("Error during API call:", err);
@@ -300,7 +300,7 @@ const Userinfo = () => {
 
         // rows 배열에서 해당 인덱스의 항목 제거
         setRows((prevRows) => prevRows.filter((_, i) => i !== index));
-        
+
         // checked 배열에서도 해당 인덱스의 항목 제거
         setChecked((prevChecked) => prevChecked.filter((_, i) => i !== index));
     }

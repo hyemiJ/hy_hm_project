@@ -95,12 +95,10 @@ public class AdminUsersController {
 	
 	String result = userAdminService.userinfoAllupdate(requestDTO);
 	if (result== "성공") {
-		return ResponseEntity.ok("저장됨");	
+		return ResponseEntity.ok("저장이 완료되었습니다.");	
 	}else  {
 		return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("저장이 불가합니다.");
 	}
-	    
-      
 	}
 	
 	@PostMapping("/administrator/users/userinfo/isWithdrawn")

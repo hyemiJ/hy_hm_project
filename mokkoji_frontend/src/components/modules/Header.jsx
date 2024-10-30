@@ -56,18 +56,22 @@ const Header = () => {
 
 
 
-    const mypage = locationNows.pathname.toLowerCase().includes('mypage');
-    const buy = locationNows.pathname.toLowerCase().includes('buy');
-    const administrator = locationNows.pathname.toLowerCase().includes('administrator');
-    useEffect(() => {
-        if ((!isLoggedIn && mypage) || (!isLoggedIn && buy) || (!isLoggedIn && administrator) || (!isAdmin && administrator)) {
-            //setIsAdmin(false);
-            // console.log('로그인상태 ', isLoggedIn)
-            // console.log('관리자 상태 ', isAdmin)
-            // console.log('administrator', administrator)
-            navigate('/');
-        }
-    }, [isLoggedIn, mypage, buy, isAdmin]);
+    //const mypage = locationNows.pathname.toLowerCase().includes('mypage');
+    //const buy = locationNows.pathname.toLowerCase().includes('buy');
+    //const administrator = locationNows.pathname.toLowerCase().includes('administrator');
+    // useEffect(() => {
+    //     // if ((!isLoggedIn && mypage) || (!isLoggedIn && buy) || (!isLoggedIn && administrator) || (!isAdmin && administrator)) {
+    //     //     //setIsAdmin(false);
+    //     //     // console.log('로그인상태 ', isLoggedIn)
+    //     //     // console.log('관리자 상태 ', isAdmin)
+    //     //     // console.log('administrator', administrator)
+    //     //     navigate('/');
+    //     // }
+    //     if (!isLoggedIn || !isAdmin) {
+    //         alert("접근 권한이 없습니다.");
+    //         navigate('/');
+    //     }
+    // }, [isLoggedIn, isAdmin]);
 
     if (locationNows.pathname.toLowerCase().includes('login')) return null;
 

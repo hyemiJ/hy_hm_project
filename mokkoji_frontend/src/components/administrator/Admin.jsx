@@ -34,12 +34,6 @@ const Admin = () => {
         fetchAdminState();
 
     }, [token])
-    //console.log('isAdmin', isAdmin)
-    // useEffect(() => {
-    //     if (!category) {
-    //         navigate('/administrator/users');
-    //     }
-    // }, [category]);
 
 
     useEffect(() => {
